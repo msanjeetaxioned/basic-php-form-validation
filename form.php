@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
+    <link rel="stylesheet" href="override.css">
     <link rel="stylesheet" href="form.css">
 </head>
 <body>
@@ -194,13 +195,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($nameError == "" && $emailError == "" && $mobileNumError == "" && $passwordError == "" && $confirmPassError == "" && $fileError == "") {
+                echo "<div class='submitted-data'>";
                 echo "<h2>Form Submitted Successfully, Thanks!</h2>";
                 echo "<h3>Submitted Data:</h3>";
-                echo "Name: $name<br>";
-                echo "Email Address: $email<br>";
-                echo "Mobile Number: $mobileNum<br>";
-                echo "Gender: $gender<br>";
-                echo "Picture File name: ".$file["name"]."<br>";
+                echo "<p>Name: $name</p>";
+                echo "<p>Email Address: $email</p>";
+                echo "<p>Mobile Number: $mobileNum</p>";
+                echo "<p>Gender: $gender</p>";
+                echo "<p>Uploaded Image:</p>";
+                echo "<figure><img src='image-upload/".$file["name"]."' alt='Your Profile Picture'></figure>";
+                echo "</div>";
             }
         }
         ?>
