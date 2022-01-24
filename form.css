@@ -99,7 +99,13 @@ input[type="file"] { padding: unset; }
 
 .submitted-data > p {
     margin-bottom: 5px;
+    color: #04AA6D;
     font-size: 16px;
+}
+
+.submitted-data > p > small { 
+    color: #000;
+    font-size: 14px; 
 }
 
 .submitted-data > figure { margin-top: 10px; }

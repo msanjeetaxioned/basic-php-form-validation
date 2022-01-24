@@ -198,11 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<div class='submitted-data'>";
                 echo "<h2>Form Submitted Successfully, Thanks!</h2>";
                 echo "<h3>Submitted Data:</h3>";
-                echo "<p>Name: $name</p>";
-                echo "<p>Email Address: $email</p>";
-                echo "<p>Mobile Number: $mobileNum</p>";
-                echo "<p>Gender: $gender</p>";
-                echo "<p>Uploaded Image:</p>";
+                echo "<p><small>Name: </small>$name</p>";
+                echo "<p><small>Email Address: </small>$email</p>";
+                echo "<p><small>Mobile Number: </small>$mobileNum</p>";
+                echo "<p><small>Gender: </small>$gender</p>";
+                echo "<p><small>Uploaded Image:</small></p>";
                 echo "<figure><img src='image-upload/".$file["name"]."' alt='Your Profile Picture'></figure>";
                 echo "</div>";
             }
