@@ -1,0 +1,70 @@
+* { box-sizing: border-box; }
+body { font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+
+.wrapper {
+    max-width: 900px;
+    width: 55%;
+    margin: 50px auto;
+}
+
+form > * { margin-bottom: 20px; }
+form > *:last-child { margin-bottom: 0; }
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.percent-50 { 
+    display: flex;
+    align-items: center;
+}
+
+.percent-50 > * { flex-basis: 50%; }
+
+input {
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+input:focus { 
+    border: 2px solid #04AA6D;
+    outline: none;
+}
+
+input[type="radio"]:hover, label, input[type="file"]:hover { cursor: pointer; }
+input[type="file"] { padding: unset; }
+
+.error-message {
+    padding: 5px 10px;
+    display: inline-block;
+    color: rgb(255, 0, 0);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.gender-div > h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.submit-div > button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    background: #04AA6D;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.submit-div > button:hover { 
+    background: #059862;
+    cursor: pointer;
+}
