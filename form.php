@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-$nameError = $emailError = $mobileNumError = $passwordError = $confirmPassError = $fileError = "*Required";
+$nameError = $emailError = $mobileNumError = $passwordError = $confirmPassError = $fileError = "";
 $name = $email = $mobileNum = $gender = $password = $confirmPass = $file = "";
 
 function nameValidation() {
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $file = $_FILES["file"];
     if (empty($file["name"])) {
-        $fileError = "*Required: Upload your Picture!";
+        $fileError = "*Please Upload your picture!";
     } else {
         fileValidation();
     }
@@ -155,6 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="wrapper">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
             <h1>form validation</h1>
+            <p class="note">Note: All of the below fields are Required. Thanks!</p>
             <div class="name-div percent-50">
                 <input type="text" name="name" placeholder="Name">
                 <span class="error-message"><?php echo $nameError; ?></span>
