@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="password-div percent-50">
                 <input type="password" name="password" placeholder="Password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES) : ''; ?>">
-                <span class="error-message"><?php echo $passwordError; ?></span>
+                <span class="<?php echo isset($_POST['password']) ? 'error-message' : 'error-message hint'?>"><?php echo $passwordError; ?></span>
             </div>
             <div class="confirm-password-div percent-50">
                 <input type="password" name="confirm-password" placeholder="Confirm Password" value="<?php echo isset($_POST['confirm-password']) ? htmlspecialchars($_POST['confirm-password'], ENT_QUOTES) : ''; ?>">

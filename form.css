@@ -58,7 +58,13 @@ input[type="file"] { padding: unset; }
     display: inline-block;
     color: rgb(255, 0, 0);
     font-size: 16px;
-    line-height: 26px;
+    line-height: 22px;
+}
+
+.hint {
+    color: #04AA6D;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .gender-div > h3 {
