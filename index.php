@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     if (empty($name)) {
         $nameError = $emptyErrors["name"];
-    } elseif (nameValidation()) {
+    } elseif (nameValidation($name)) {
         $nameError = "";
     } else {
         $nameError = $criteriaErrors["name"];
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     if (empty($email)) {
         $emailError = $emptyErrors["email"];
-    } elseif (emailValidation()) {
+    } elseif (emailValidation($email)) {
         $emailError = "";
     } else {
         $emailError = $criteriaErrors["email"];
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobileNum = $_POST["phone-num"];
     if (empty($mobileNum)) {
         $mobileNumError = $emptyErrors["mobile-num"];
-    } elseif (mobileNumValidation()) {
+    } elseif (mobileNumValidation($mobileNum)) {
         $mobileNumError = "";
     } else {
         $mobileNumError = $criteriaErrors["mobile-num"];
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmPass = $_POST["confirm-password"];
     if (empty($confirmPass)) {
         $confirmPassError = $emptyErrors["confirm-pass"];
-    } elseif (confirmPasswordValidation()) {
+    } elseif (confirmPasswordValidation($password, $confirmPass)) {
         $confirmPassError = "";
     } else {
         $confirmPassError = $criteriaErrors["confirm-pass"];
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($file["name"])) {
         $fileError = $emptyErrors["file"];
     } else {
-        fileValidation();
+        fileValidation($file, $fileError, $fileErrors);
     }
 }
 ?>

@@ -1,6 +1,5 @@
 <?php
-function nameValidation() {
-    GLOBAL $name;
+function nameValidation($name) {
     if (strlen($name) >= 2) {
         $pattern = "/^[a-z ,.'-]+$/i";
         if (preg_match($pattern, $name)) {
@@ -11,8 +10,7 @@ function nameValidation() {
     return false;
 }
 
-function emailValidation() {
-    GLOBAL $email;
+function emailValidation($email) {
     $pattern = "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i";
     if (preg_match($pattern, $email)) {
         return true;
@@ -20,8 +18,7 @@ function emailValidation() {
     return false;
 }
 
-function mobileNumValidation() {
-    GLOBAL $mobileNum;
+function mobileNumValidation($mobileNum) {
     $pattern = "/^\+((?:9[679]|8[035789]|6[789]|5[90]|42|3[578]|2[1-689])|9[0-58]|8[1246]|6[0-6]|5[1-8]|4[013-9]|3[0-469]|2[70]|7|1)(?:\W*\d){0,13}\d$/";
     if (preg_match($pattern, $mobileNum)) {
         return true;
@@ -37,9 +34,7 @@ function passwordValidation($password) {
     return false;
 }
 
-function confirmPasswordValidation() {
-    GLOBAL $password;
-    GLOBAL $confirmPass;
+function confirmPasswordValidation($password, $confirmPass) {
     if ($confirmPass == $password) {
         return true;
     }
@@ -48,11 +43,7 @@ function confirmPasswordValidation() {
     }
 }
 
-function fileValidation() {
-    GLOBAL $file;
-    GLOBAL $fileError;
-    GLOBAL $fileErrors;
-
+function fileValidation($file, $fileError, $fileErrors) {
     $target_dir = "image-upload/";
     $target_file = $target_dir.basename($file["name"]);
     $uploadOk = 1;
