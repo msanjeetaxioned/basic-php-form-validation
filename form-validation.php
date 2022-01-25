@@ -40,7 +40,7 @@ function passwordValidation($password) {
 function confirmPasswordValidation() {
     GLOBAL $password;
     GLOBAL $confirmPass;
-    if (passwordValidation($confirmPass) && $confirmPass == $password) {
+    if ($confirmPass == $password) {
         return true;
     }
     else {

@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="wrapper">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
             <h1>form validation</h1>
-            <p class="note">Note: All of the below fields are Required. Thanks!</p>
+            <p class="note">Note: All of the below fields are Required.</p>
             <div class="name-div percent-50">
                 <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $nameError; ?></span>
