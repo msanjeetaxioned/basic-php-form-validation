@@ -67,6 +67,7 @@ function fileValidation($file, $fileError, $fileErrors) {
     }
 
     if (move_uploaded_file($file["tmp_name"], $target_file)) {
+        chmod($target_file, 0750);
         $fileError = "";
         return;
     } else {
