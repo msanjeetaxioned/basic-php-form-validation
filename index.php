@@ -78,30 +78,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>form validation</h1>
             <p class="note">Note: All of the below fields are Required. Thanks!</p>
             <div class="name-div percent-50">
-                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $nameError; ?></span>
             </div>
             <div class="email-div percent-50">
-                <input type="email" name="email" placeholder="Email Id">
+                <input type="email" name="email" placeholder="Email Id" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $emailError; ?></span>
             </div>
             <div class="mobile-div percent-50">
-                <input type="tel" name="phone-num" placeholder="Mobile Number">
+                <input type="tel" name="phone-num" placeholder="Mobile Number" value="<?php echo isset($_POST['phone-num']) ? htmlspecialchars($_POST['phone-num'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $mobileNumError; ?></span>
             </div>
             <div class="gender-div">
                 <h3>Gender:</h3>
                 <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="Male" checked>
+                <input type="radio" id="male" name="gender" value="Male" <?php echo (isset($_POST['gender'])) ? (($_POST['gender'] === 'Male') ? 'checked' : '') : 'checked'; ?>>
                 <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="Female">
+                <input type="radio" id="female" name="gender" value="Female" <?php echo (isset($_POST['gender']) && $_POST['gender'] === 'Female') ? 'checked' : ''; ?>>
             </div>
             <div class="password-div percent-50">
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $passwordError; ?></span>
             </div>
             <div class="confirm-password-div percent-50">
-                <input type="password" name="confirm-password" placeholder="Confirm Password">
+                <input type="password" name="confirm-password" placeholder="Confirm Password" value="<?php echo isset($_POST['confirm-password']) ? htmlspecialchars($_POST['confirm-password'], ENT_QUOTES) : ''; ?>">
                 <span class="error-message"><?php echo $confirmPassError; ?></span>
             </div>
             <div class="file-div percent-50">
