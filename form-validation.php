@@ -46,7 +46,6 @@ function confirmPasswordValidation($password, $confirmPass) {
 function fileValidation($file, $fileError, $fileErrors) {
     $target_dir = "image-upload/";
     $target_file = $target_dir.basename($file["name"]);
-    $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image of required types
