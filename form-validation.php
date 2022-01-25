@@ -64,11 +64,13 @@ function fileValidation() {
         return;
     }
 
+    // Check if file with same name is already stored
     if (file_exists($target_file)) {
         $fileError =  $fileErrors["name"];
         return;
     }
 
+    // max. upload file size allowed is 1.5MB
     if ($file["size"] > 1500000) {
         $fileError =  $fileErrors["size"];
         return;

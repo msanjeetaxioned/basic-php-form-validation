@@ -13,8 +13,9 @@
 require('defaults.php');
 require('form-validation.php');
 
-// print_r($_POST);
+// Check if form submitted with 'POST' method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Name Validation
     $name = $_POST["name"];
     if (empty($name)) {
         $nameError = $emptyErrors["name"];
@@ -24,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nameError = $criteriaErrors["name"];
     }
 
+    // Email Validation
     $email = $_POST["email"];
     if (empty($email)) {
         $emailError = $emptyErrors["email"];
@@ -33,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailError = $criteriaErrors["email"];
     }
 
+    // Mobile Number Validation
     $mobileNum = $_POST["phone-num"];
     if (empty($mobileNum)) {
         $mobileNumError = $emptyErrors["mobile-num"];
@@ -42,8 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mobileNumError = $criteriaErrors["mobile-num"];
     }
 
+    // Get Gender
     $gender = $_POST["gender"];
 
+    // Password Validation
     $password = $_POST["password"];
     if (empty($password)) {
         $passwordError = $emptyErrors["password"];
@@ -53,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passwordError = $criteriaErrors["password"];
     }
 
+    // Confirm Password Validation
     $confirmPass = $_POST["confirm-password"];
     if (empty($confirmPass)) {
         $confirmPassError = $emptyErrors["confirm-pass"];
@@ -62,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $confirmPassError = $criteriaErrors["confirm-pass"];
     }
 
+    // Image submitted Validation
     $file = $_FILES["file"];
     if (empty($file["name"])) {
         $fileError = $emptyErrors["file"];
@@ -128,6 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
     </div>
     <script>
+        // To prevent Page Refresh from Submitting Form
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
