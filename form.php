@@ -10,7 +10,8 @@
 </head>
 <body>
 <?php
-$nameError = $emailError = $mobileNumError = $passwordError = $confirmPassError = $fileError = "";
+$nameError = $emailError = $mobileNumError = $confirmPassError = $fileError = "";
+$passwordError = "Hint: Password should be Min. '8' in length and must contain Min. '1' Uppercase Charactor and '1' Number.";
 $name = $email = $mobileNum = $gender = $password = $confirmPass = $file = "";
 
 function nameValidation() {
@@ -100,36 +101,36 @@ function fileValidation() {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     if (empty($name)) {
-        $nameError = "*Name is Required!";
+        $nameError = "*Please enter your Name!";
     } elseif (nameValidation()) {
         $nameError = "";
     } else {
-        $nameError = "*Enter a Valid Name!";
+        $nameError = "*Please enter a valid Name!";
     }
 
     $email = $_POST["email"];
     if (empty($email)) {
-        $emailError = "*Email is Required!";
+        $emailError = "*Please enter your Email Address!";
     } elseif (emailValidation()) {
         $emailError = "";
     } else {
-        $emailError = "*Enter a Valid Email Address!";
+        $emailError = "*Please enter a valid Email Address!";
     }
 
     $mobileNum = $_POST["phone-num"];
     if (empty($mobileNum)) {
-        $mobileNumError = "*Mobile Number is Required!";
+        $mobileNumError = "*Please enter your Mobile Number!";
     } elseif (mobileNumValidation()) {
         $mobileNumError = "";
     } else {
-        $mobileNumError = "*Enter a Valid Mobile Number!";
+        $mobileNumError = "*Please enter a valid Mobile Number!";
     }
 
     $gender = $_POST["gender"];
 
     $password = $_POST["password"];
     if (empty($password)) {
-        $passwordError = "*Password is Required!";
+        $passwordError = "*Please enter a Password!";
     } elseif (passwordValidation($password)) {
         $passwordError = "";
     } else {
@@ -138,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $confirmPass = $_POST["confirm-password"];
     if (empty($confirmPass)) {
-        $confirmPassError = "*Confirm your Password!";
+        $confirmPassError = "*Please confirm your Password!";
     } elseif (confirmPasswordValidation()) {
         $confirmPassError = "";
     } else {
