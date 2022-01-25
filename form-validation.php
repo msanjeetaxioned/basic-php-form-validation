@@ -51,25 +51,26 @@ function confirmPasswordValidation() {
 function fileValidation() {
     GLOBAL $file;
     GLOBAL $fileError;
+    GLOBAL $fileErrors;
 
     $target_dir = "image-upload/";
     $target_file = $target_dir.basename($file["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
+    // Check if image file is a actual image of required types
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-        $fileError =  "*Sorry, only JPG, JPEG & PNG Image files are allowed.";
+        $fileError =  $fileErrors["type"];
         return;
     }
 
     if (file_exists($target_file)) {
-        $fileError =  "*Sorry, file already exists. Try a different name.";
+        $fileError =  $fileErrors["name"];
         return;
     }
 
     if ($file["size"] > 1500000) {
-        $fileError =  "*Sorry, your file is too large. Max. allowed size <=1.5mb.";
+        $fileError =  $fileErrors["size"];
         return;
     }
 
@@ -77,7 +78,7 @@ function fileValidation() {
         $fileError = "";
         return;
     } else {
-        $fileError = "*Sorry, some Unknown Error Occured.";
+        $fileError = $fileErrors["other"];
         return;
     }
 }

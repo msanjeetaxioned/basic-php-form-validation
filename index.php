@@ -10,64 +10,61 @@
 </head>
 <body>
 <?php
-$nameError = $emailError = $mobileNumError = $confirmPassError = $fileError = "";
-$passwordError = "Hint: Password should be Min. '8' in length and must contain Min. '1' Uppercase Charactor and '1' Number.";
-$name = $email = $mobileNum = $gender = $password = $confirmPass = $file = "";
-
+require('defaults.php');
 require('form-validation.php');
 
 // print_r($_POST);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     if (empty($name)) {
-        $nameError = "*Please enter your Name!";
+        $nameError = $emptyErrors["name"];
     } elseif (nameValidation()) {
         $nameError = "";
     } else {
-        $nameError = "*Please enter a valid Name!";
+        $nameError = $criteriaErrors["name"];
     }
 
     $email = $_POST["email"];
     if (empty($email)) {
-        $emailError = "*Please enter your Email Address!";
+        $emailError = $emptyErrors["email"];
     } elseif (emailValidation()) {
         $emailError = "";
     } else {
-        $emailError = "*Please enter a valid Email Address!";
+        $emailError = $criteriaErrors["email"];
     }
 
     $mobileNum = $_POST["phone-num"];
     if (empty($mobileNum)) {
-        $mobileNumError = "*Please enter your Mobile Number!";
+        $mobileNumError = $emptyErrors["mobile-num"];
     } elseif (mobileNumValidation()) {
         $mobileNumError = "";
     } else {
-        $mobileNumError = "*Please enter a valid Mobile Number!";
+        $mobileNumError = $criteriaErrors["mobile-num"];
     }
 
     $gender = $_POST["gender"];
 
     $password = $_POST["password"];
     if (empty($password)) {
-        $passwordError = "*Please enter a Password!";
+        $passwordError = $emptyErrors["password"];
     } elseif (passwordValidation($password)) {
         $passwordError = "";
     } else {
-        $passwordError = "*Password should be Min. '8' in length and must contain Min. '1' Uppercase Charactor and '1' Number.";
+        $passwordError = $criteriaErrors["password"];
     }
 
     $confirmPass = $_POST["confirm-password"];
     if (empty($confirmPass)) {
-        $confirmPassError = "*Please confirm your Password!";
+        $confirmPassError = $emptyErrors["confirm-pass"];
     } elseif (confirmPasswordValidation()) {
         $confirmPassError = "";
     } else {
-        $confirmPassError = "*Password entered here should match the above Password.";
+        $confirmPassError = $criteriaErrors["confirm-pass"];
     }
 
     $file = $_FILES["file"];
     if (empty($file["name"])) {
-        $fileError = "*Please Upload your picture!";
+        $fileError = $emptyErrors["file"];
     } else {
         fileValidation();
     }
